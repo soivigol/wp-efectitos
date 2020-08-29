@@ -3,7 +3,7 @@
  * Plugin Name: WP Efectitos
  * Plugin URI:  wp-efectos
  * Description: Plugin para añadir efectos o animaciones a bloques de Gutenberg.
- * Version:     0.1
+ * Version:     0.2
  * Author:      David Viña
  * Author URI:  www.davidviña.es
  * Text Domain: WPEfectitos
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-define( 'VERSION', '1.0' );
+define( 'VERSION', '1.0.1' );
 /**
  * Load Styles and Scripts js
  *
