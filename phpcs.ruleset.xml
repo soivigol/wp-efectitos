@@ -2,8 +2,6 @@
 <ruleset name="WP Efectitos">
 	<description>A custom set of code standard rules to check for WordPress Plugins WP Efectitos.</description>
 
-  <config name="installed_paths" value="/Users/david/.composer/vendor/wp-coding-standards/wpcs" />
-
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
