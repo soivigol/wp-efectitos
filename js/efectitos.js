@@ -6,40 +6,44 @@ window.addEventListener('load', () => {
 });
 
 function setEfectitos() {
-	const elFadeIn = document.querySelectorAll('.efecto-fade-in');
-	for (let index = 0; index < elFadeIn.length; index++) {
-		const element = elFadeIn[index];
+	setEfecto( 'fade-in' );
 
-		if (isInViewport(element)) {
-			element.classList.add('fade-in-animation');
-		}
-	}
+    setEfecto( 'slide-left' );
+    
+    setEfecto( 'slide-right' );
 
-	const elSlideLeft = document.querySelectorAll('.efecto-slide-left');
-	for (let index = 0; index < elSlideLeft.length; index++) {
-		const element = elSlideLeft[index];
+    setEfecto( 'slide-up' );
 
-		if (isInViewport(element)) {
-			element.classList.add('slide-left-animation');
-		}
-	}
+    setEfecto( 'slide-down' );
 
-	const elSlideRight = document.querySelectorAll('.efecto-slide-right');
-	for (let index = 0; index < elSlideRight.length; index++) {
-		const element = elSlideRight[index];
+    setEfecto( 'zoom-in' );
 
-		if (isInViewport(element)) {
-			element.classList.add('slide-right-animation');
+    setEfecto( 'tembleque-y' );
+}
+
+function setEfecto( slug ) {
+    const elemento = document.querySelectorAll('.efecto-' + slug );
+	const lengthEl = elemento.length;
+	for ( let index = 0; index < lengthEl; index++ ) {
+		const element = elemento[index];
+
+		if ( isInViewport( element ) ) {
+            setTimeout( function() {
+                element.classList.add( slug + '-animation' );
+            }, 700 );
 		}
 	}
 }
+	
 
-function isInViewport(element) {
-	const rect = element.getBoundingClientRect();
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-	);
+function isInViewport( elto ) {
+	const anchoViewport = window.innerWidth || document.documentElement.clientWidth;
+    const alturaViewport = window.innerHeight || document.documentElement.clientHeight;
+
+    const caja = elto.getBoundingClientRect();
+    const cajaDentroH = ( caja.left >= 0 && caja.left <= anchoViewport ) ||
+                    ( caja.right >= 0 && caja.right <= anchoViewport );
+    const cajaDentroV = ( caja.top >= alturaViewport / 2 && caja.top <= alturaViewport ) ||  
+                    ( caja.bottom >= alturaViewport / 2 && caja.bottom <= alturaViewport );  
+    return ( cajaDentroH && cajaDentroV );
 }
