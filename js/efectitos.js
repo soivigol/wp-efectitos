@@ -43,7 +43,7 @@ function isInViewport( elto ) {
     const caja = elto.getBoundingClientRect();
     const cajaDentroH = ( caja.left >= 0 && caja.left <= anchoViewport ) ||
                     ( caja.right >= 0 && caja.right <= anchoViewport );
-    const cajaDentroV = ( caja.top >= alturaViewport / 2 && caja.top <= alturaViewport ) ||  
-                    ( caja.bottom >= alturaViewport / 2 && caja.bottom <= alturaViewport );  
+    const cajaDentroV = ( caja.top >= 0 && caja.top <= alturaViewport ) ||  
+                    ( caja.bottom >= 0 && caja.bottom <= alturaViewport );  
     return ( cajaDentroH && cajaDentroV );
 }
